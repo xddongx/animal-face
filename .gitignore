@@ -12,3 +12,4 @@ manage/
 .idea/
 migrations/
 __init__.py
+.pem
