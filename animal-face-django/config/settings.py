@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+import awskey
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -25,7 +27,7 @@ SECRET_KEY = 'h1daj6w*)^&^a7(blw)9peer__30o#!4qoiixg23mkx4rbj_3-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.compute.amazonaws.com','*']
+ALLOWED_HOSTS = ['.compute.amazonaws.com','*','dns']
 
 
 # Application definition
@@ -83,8 +85,8 @@ DATABASES = {
     }
 }
 
-AWS_ACCESS_KEY_ID = 'AKIA5C2TM4VRR7USS6BR'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = awskey.USER_KEY
+AWS_SECRET_ACCESS_KEY = awskey.USER_SECRET_KEY
 AWS_REGION = 'ap-northeast-2'
 AWS_STORAGE_BUCKET_NAME = 'animal-face'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com'%(AWS_STORAGE_BUCKET_NAME, AWS_REGION)
