@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-import awskey
+from . import awskey
+from . import my_settings
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,12 +79,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = my_settings.DATABASES
+# {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 AWS_ACCESS_KEY_ID = awskey.USER_KEY
 AWS_SECRET_ACCESS_KEY = awskey.USER_SECRET_KEY
@@ -94,7 +96,9 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl' : 'max-age=86400',
 }
 DEFAULT_FILE_STORAGE = 'config.asset_storage.MediaStorage'
-
+AWS_LOCATION = 'static'
+STATIC_URL = 'https://%s/%s'%(AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
