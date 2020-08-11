@@ -83,6 +83,16 @@ DATABASES = {
     }
 }
 
+AWS_ACCESS_KEY_ID = 'AKIA5C2TM4VRR7USS6BR'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_REGION = 'ap-northeast-2'
+AWS_STORAGE_BUCKET_NAME = 'animal-face'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com'%(AWS_STORAGE_BUCKET_NAME, AWS_REGION)
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl' : 'max-age=86400',
+}
+DEFAULT_FILE_STORAGE = 'config.asset_storage.MediaStorage'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
