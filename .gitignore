@@ -12,3 +12,6 @@ manage/
 .idea/
 migrations/
 __init__.py
+
+# config/awskey.py
+# animal-face-django/config/awskey.py
