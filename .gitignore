@@ -13,5 +13,5 @@ manage/
 migrations/
 __init__.py
 
-# config/awskey.py
-# animal-face-django/config/awskey.py
+animal-face-django/config/my_settings.py
+animal-face-django/config/awskey.py
