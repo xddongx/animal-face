@@ -19,7 +19,7 @@ from . import views
 
 app_name='face'
 urlpatterns = [
-    # path('', views.FaceCreateView.as_view(), name='faceform'),
-    path('', views.face, name='create'),
+    path('', views.FaceCV.as_view(), name='faceform'),
+    # path('', views.F, name='create'),
     path('facehist/<int:pk>/', views.FaceDV.as_view(), name='detail'),
 ]

@@ -10,19 +10,18 @@ class Face(models.Model):
 
 class FaceHist(models.Model):
     GENDER_CHOICES =( 
-        ("1", "남자"), 
-        ("2", "여자")
+        ("남자", "남자"), 
+        ("여자", "여자")
     ) 
 
     AGE_CHOICES =(
-        ('0', '0~9'),
-        ('1', '10~19'),
-        ('2', '20~29'),
-        ('3', '30~39'),
-        ('4', '40~'),
+        ('10대', '10대'),
+        ('20대', '20대'),
+        ('30대', '30대'),
+        ('40대 이상', '40대 이상'),
     )
-    age = models.CharField(max_length=5, choices=GENDER_CHOICES)
-    gender = models.CharField(max_length=10, choices=AGE_CHOICES)
+    age = models.CharField(max_length=15, choices=AGE_CHOICES)
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     image = models.ImageField(upload_to='face/%Y/%m')
     message = models.TextField(blank=True, null=True)
     face = models.ForeignKey(Face, on_delete=models.CASCADE, blank=True, null=True)
