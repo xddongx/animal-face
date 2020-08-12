@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
+app_name='face'
 urlpatterns = [
-    path('', views.face),
+    # path('', views.FaceCreateView.as_view(), name='faceform'),
+    path('', views.face, name='create'),
+    path('facehist/<int:pk>/', views.FaceDV.as_view(), name='detail'),
 ]
