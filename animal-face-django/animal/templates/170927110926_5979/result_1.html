@@ -25,6 +25,20 @@
   function load(URL) {
   window.open(URL, "myWin", "left=300,top=300,width=400,height=300");
   }
+
+  var newWindow;
+
+  function openNewWindow(){
+
+  newWindow = window.open("미리보기.html", "newWindow", "height=1000, width=800, resizable=yes");
+
+  }
+
+  function openNewWindow1(){
+
+  newWindow = window.open("공유하기_카카오톡.html", "newWindow", "height=200, width=300, resizable=yes");
+
+  }
   </script>
 </head>
 
@@ -84,8 +98,8 @@
     <div class="button">
 
     <center>
-    <input type='button' value='미리보기' onclick="window.open('result.html')">
-    <input type='button' value='공유하기' onclick="location.href='result.html'">
+    <input type="button" value="미리보기" onclick="openNewWindow()">
+    <input type='button' value='공유하기' onclick="openNewWindow1()">
       </form>
     </center>
     </div>
@@ -93,7 +107,7 @@
     <div>
       <center>
     <form action="memberremove.do?empno=${memrm.empno }" name="removefrm" method="post">
-    <table cellspacing="0" class="contexttbl"><input type='button' value='다운로드' onclick="test()">
+    <input type='button' value='다운로드' onclick="test()">
 <input type='button' value='다시하기' onclick="location.href='result.html'">
     </form>
       </div>

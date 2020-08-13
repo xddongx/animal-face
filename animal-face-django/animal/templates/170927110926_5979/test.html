@@ -1,91 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
 
-    <script type="text/javascript">
-      function removeCheck() {
+<html>
 
-   if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+<head>
 
-       document.removefrm.submit();
+<meta charset="UTF-8">
 
-   }else{   //취소
+<title>Insert title here</title>
 
-       return false;
+<script type="text/javascript">
 
-   }
+    var newWindow;
 
-  }  
-    </script>
+    function openNewWindow(){
 
-    </head>
+        newWindow = window.open("미리보기.html", "newWindow", "height=1000, width=800, resizable=yes");
 
-  <body>
-    <div id="remove" class="remove">
+    }
 
-        <form action="memberremove.do?empno=${memrm.empno }" name="removefrm" method="post">
-     <h1>직원 정보 삭제</h1>
+    function sendMeData(data) {
 
-      <table cellspacing="0" class="contexttbl">
+        var txt = "<font color='red'>자식창에서 받아온 값 : </font>";
 
-       <tr>
+        document.getElementById("process").innerHTML = txt;
 
-         <th>직원번호</th>
+        document.getElementById("result").innerHTML = data;
 
-          <td><p>${memrm.empno }</p></td>
+    }
 
-       </tr>
+</script>
 
-       <tr>
+</head>
 
-         <th>직급</th>
+<input type="button" value="자식창 열기" onclick="openNewWindow()"><br>
 
-         <td><p>${memrm.emptitle }</p></td>
+<span id="process"></span><span id="result"></span>
 
-       </tr>
-
-       <tr>
-
-         <th>이름</th>
-
-         <td><p>${memrm.empname }</p></td>
-
-       </tr>
-
-       <tr>
-
-         <th>전화번호</th>
-
-         <td><p>${memrm.empphone }</p></td>
-
-       </tr>
-
-       <tr>
-
-         <th>이메일</th>
-
-         <td><p>${memrm.empemail }</p></td>
-
-       </tr>
-
-       <tr>
-
-        <td id="submit" colspan="2">
-
-         <input id="tblbutton" type="button" value="직원삭제하기" onclick="removeCheck()">
-
-        </td>
-
-       </tr>
-
-     </table>
-
-        </form>
-
-    </div> <!-- end remove -->
-
-  </body>
+</body>
 
 </html>
