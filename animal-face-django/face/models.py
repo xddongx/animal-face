@@ -23,8 +23,9 @@ class FaceHist(models.Model):
     age = models.CharField(max_length=15, choices=AGE_CHOICES)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     image = models.ImageField(upload_to='face/%Y/%m')
-    message = models.TextField(blank=True, null=True)
-    face = models.ForeignKey(Face, on_delete=models.CASCADE, blank=True, null=True)
+    message = models.TextField()
+    face = models.ForeignKey(Face, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return '{} : {}'.format(self.face, self.message)

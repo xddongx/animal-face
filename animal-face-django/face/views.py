@@ -28,17 +28,24 @@ class FaceCV(CreateView):
     def form_valid(self, form):
         print('--------submit-------')
         if form.is_valid():
-            form.age = form.instance.age,
-            form.gender = form.instance.gender,
-            form.image = form.instance.image,
+            age = form.instance.age
+            gender = form.instance.gender
+            image = form.instance.image
+            message = '정상처리'
+            face_id = Face.objects.filter(face='공룡상')
             data = {
-                'message' : '정상처리',
-                'face_pk' : Face.objects.filter(face='공룡상'),
+                age,gender,image,message,face_id
             }
-            print(data)
-            # form.add(message)
-            # form.add(face_pk)
-            print('befor : ',form)
+            hist = FaceHist(data)
+
+            print('age : ',age)
+            print('gender : ',gender)
+            print('image : ',image)
+            print('message : ',message)
+            print('face_id : ', face_id)
+            print('data : ',data)
+            print('----------------------')
+            print('hist : ',hist)
             # hist.save()
             # print('after : ',hist)
         #     return super().form_valid(form)
