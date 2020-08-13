@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script type="text/javascript">
+      function removeCheck() {
+
+   if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+
+       document.removefrm.submit();
+
+   }else{   //취소
+
+       return false;
+
+   }
+
+  }  
+    </script>
+
+    </head>
+
+  <body>
+    <div id="remove" class="remove">
+
+        <form action="memberremove.do?empno=${memrm.empno }" name="removefrm" method="post">
+     <h1>직원 정보 삭제</h1>
+
+      <table cellspacing="0" class="contexttbl">
+
+       <tr>
+
+         <th>직원번호</th>
+
+          <td><p>${memrm.empno }</p></td>
+
+       </tr>
+
+       <tr>
+
+         <th>직급</th>
+
+         <td><p>${memrm.emptitle }</p></td>
+
+       </tr>
+
+       <tr>
+
+         <th>이름</th>
+
+         <td><p>${memrm.empname }</p></td>
+
+       </tr>
+
+       <tr>
+
+         <th>전화번호</th>
+
+         <td><p>${memrm.empphone }</p></td>
+
+       </tr>
+
+       <tr>
+
+         <th>이메일</th>
+
+         <td><p>${memrm.empemail }</p></td>
+
+       </tr>
+
+       <tr>
+
+        <td id="submit" colspan="2">
+
+         <input id="tblbutton" type="button" value="직원삭제하기" onclick="removeCheck()">
+
+        </td>
+
+       </tr>
+
+     </table>
+
+        </form>
+
+    </div> <!-- end remove -->
+
+  </body>
+
+</html>
